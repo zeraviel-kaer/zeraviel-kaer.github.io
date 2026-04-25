@@ -75,7 +75,7 @@ nav {
   border-bottom: 1px solid var(--border2);
 }
 .nav-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 800;
   font-size: 20px;
   background: linear-gradient(135deg, #a78bfa, #7c3aed);
@@ -126,8 +126,8 @@ nav {
   content: '';
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 8px rgba(74,222,128,0.8);
+  background: #deb74a;
+  box-shadow: 0 0 8px rgba(183, 222, 74, 0.8);
   animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse {
@@ -174,7 +174,7 @@ nav {
 }
 
 h1.hero-name {
-  font-family: 'Syne', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: clamp(52px, 8vw, 88px);
   font-weight: 800;
   line-height: 1;
