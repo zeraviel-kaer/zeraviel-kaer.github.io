@@ -1,87 +1,211 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gin Fox — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="avatar.png" class="avatar" alt="avatar">
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
 
-    <h1 class="name">Gin Fox</h1>
-    <p class="desc">Python dev • Discord bots • Roblox systems</p>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">GF</div>
+  <div class="nav-links">
+    <a href="#strengths">Навыки</a>
+    <a href="#projects">Проекты</a>
+    <a href="#contact">Контакт</a>
+  </div>
+</nav>
 
-    <button class="btn">Связаться со мной</button>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-status">Открыт к заказам</div>
 
-  <!-- STRENGTHS -->
-  <section class="section">
-    <h2>Мои сильные стороны</h2>
-
-    <div class="grid">
-      <div class="card">💻 Чистый код</div>
-      <div class="card">⚡ Быстрая разработка</div>
-      <div class="card">🧠 Архитектура систем</div>
-    </div>
-  </section>
-
-  <!-- TABS -->
-  <section class="section">
-    <div class="tabs">
-      <button onclick="showTab('skills')">Навыки</button>
-      <button onclick="showTab('tools')">Инструменты</button>
-    </div>
-
-    <div id="skills" class="tab active">
-      Python • JavaScript • SQL • Discord.py • HTML/CSS
-    </div>
-
-    <div id="tools" class="tab">
-      Git • VS Code • Linux • SQLite • Roblox Studio
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section">
-    <h2>Проекты</h2>
-
-    <div class="grid">
-
-      <div class="card project" onclick="openProject('bot')">
-        🤖 Discord Bot
-      </div>
-
-      <div class="card project" onclick="openProject('roblox')">
-        🎮 Roblox System
-      </div>
-
-      <div class="card project" onclick="openProject('db')">
-        🗄 SQLite System
-      </div>
-
-    </div>
-  </section>
-
-  <!-- MODAL -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">✖</span>
-      <div id="modal-body"></div>
+  <div class="avatar-wrap">
+    <div class="avatar-ring"></div>
+    <div class="avatar-inner">
+      <img src="avatar.png" alt="Gin Fox"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="avatar-fallback" style="display:none">G</div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>📧 mail@example.com</p>
-    <p>github.com/yourname</p>
-    <p>Discord: yourtag</p>
-  </footer>
+  <h1 class="hero-name">Gin Fox</h1>
+  <p class="hero-tagline">
+    <span>Python</span> dev &nbsp;·&nbsp; <span>Discord</span> bots &nbsp;·&nbsp; <span>Roblox</span> systems
+  </p>
 
-  <script src="script.js"></script>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="scrollToSection('contact')">Связаться со мной</button>
+    <button class="btn-outline" onclick="scrollToSection('projects')">Смотреть проекты</button>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STRENGTHS -->
+<section id="strengths">
+  <div class="section-inner">
+    <p class="section-label fade-in">Что я умею</p>
+    <h2 class="section-title fade-in">Мои сильные<br>стороны</h2>
+
+    <div class="strengths-grid">
+      <div class="strength-card fade-in">
+        <span class="strength-icon">✦</span>
+        <div class="strength-title">Чистый код</div>
+        <div class="strength-desc">Пишу читаемый, структурированный код с соблюдением принципов SOLID и PEP8. Комментирую и документирую каждый модуль.</div>
+      </div>
+      <div class="strength-card fade-in">
+        <span class="strength-icon">⚡</span>
+        <div class="strength-title">Быстрая разработка</div>
+        <div class="strength-desc">Выстраиваю рабочий прототип за короткое время, не теряя в качестве. Опыт работы в жёстких дедлайнах.</div>
+      </div>
+      <div class="strength-card fade-in">
+        <span class="strength-icon">◈</span>
+        <div class="strength-title">Архитектура систем</div>
+        <div class="strength-desc">Проектирую масштабируемые системы с нуля — от схемы БД до деплоя. Думаю наперёд о расширении функционала.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS / TOOLS -->
+<section>
+  <div class="section-inner">
+    <p class="section-label fade-in">Технологии</p>
+    <h2 class="section-title fade-in">Стек и инструменты</h2>
+
+    <div class="skills-wrap fade-in">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('skills', this)">Навыки</button>
+        <button class="tab-btn" onclick="switchTab('tools', this)">Инструменты</button>
+      </div>
+      <div id="skills" class="tab-content active">
+        <div class="skill-pill">Python</div>
+        <div class="skill-pill">JavaScript</div>
+        <div class="skill-pill">SQL</div>
+        <div class="skill-pill">Discord.py</div>
+        <div class="skill-pill">HTML / CSS</div>
+        <div class="skill-pill">Luau (Roblox)</div>
+        <div class="skill-pill">REST API</div>
+        <div class="skill-pill">asyncio</div>
+      </div>
+      <div id="tools" class="tab-content">
+        <div class="skill-pill">Git &amp; GitHub</div>
+        <div class="skill-pill">VS Code</div>
+        <div class="skill-pill">Linux</div>
+        <div class="skill-pill">SQLite</div>
+        <div class="skill-pill">Roblox Studio</div>
+        <div class="skill-pill">Docker</div>
+        <div class="skill-pill">Postman</div>
+        <div class="skill-pill">Figma</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label fade-in">Работы</p>
+    <h2 class="section-title fade-in">Проекты</h2>
+
+    <div class="projects-grid">
+      <div class="project-card fade-in" onclick="openModal('bot')">
+        <div class="project-arrow">↗</div>
+        <span class="project-emoji">🤖</span>
+        <div class="project-title">Discord Bot</div>
+        <div class="project-desc">Многофункциональный бот с экономикой, модерацией и подробным логированием всех событий сервера.</div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Discord.py</span>
+          <span class="project-tag">SQLite</span>
+        </div>
+      </div>
+      <div class="project-card fade-in" onclick="openModal('roblox')">
+        <div class="project-arrow">↗</div>
+        <span class="project-emoji">🎮</span>
+        <div class="project-title">Roblox System</div>
+        <div class="project-desc">Комплексная игровая система с инвентарём, кастомным UI и скриптами взаимодействия объектов.</div>
+        <div class="project-tags">
+          <span class="project-tag">Luau</span>
+          <span class="project-tag">Roblox Studio</span>
+          <span class="project-tag">UI/UX</span>
+        </div>
+      </div>
+      <div class="project-card fade-in" onclick="openModal('db')">
+        <div class="project-arrow">↗</div>
+        <span class="project-emoji">🗄</span>
+        <div class="project-title">SQLite System</div>
+        <div class="project-desc">Надёжная система хранения данных пользователей, истории транзакций и параметров экономики.</div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">SQLite</span>
+          <span class="project-tag">asyncio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-box fade-in">
+      <div class="contact-title">Есть идея? Давай создадим это вместе</div>
+      <div class="contact-sub">Открыт к новым проектам, коллаборациям и интересным задачам.<br>Пиши — отвечу быстро.</div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:mail@example.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2 7 10 7 10-7"/></svg>
+          mail@example.com
+        </a>
+        <a class="contact-link" href="https://github.com/yourname" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.33 1.11 2.9.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 7.41c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.81c0 .27.18.59.69.49A10.27 10.27 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a class="contact-link" href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          yourtag
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Gin Fox</div>
+  <div class="footer-note">Python dev · Discord bots · Roblox systems · © 2025</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-emoji" id="m-emoji"></span>
+    <div class="modal-title" id="m-title"></div>
+    <div class="modal-body" id="m-body"></div>
+    <div class="modal-tags" id="m-tags"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
