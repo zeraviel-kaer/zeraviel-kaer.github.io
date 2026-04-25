@@ -244,35 +244,6 @@ document.addEventListener("keydown", e => {
   }
 });
 
-// ─── CUSTOM CURSOR ───
-const cursor = document.getElementById('cursor');
-const cursorDot = document.getElementById('cursor-dot');
-let cursorX = 0, cursorY = 0;
-let dotX = 0, dotY = 0;
-
-document.addEventListener('mousemove', e => {
-  dotX = e.clientX;
-  dotY = e.clientY;
-});
-
-function animateCursor() {
-  cursorX += (dotX - cursorX) * 0.12;
-  cursorY += (dotY - cursorY) * 0.12;
-
-  cursor.style.left = cursorX + 'px';
-  cursor.style.top = cursorY + 'px';
-  cursorDot.style.left = dotX + 'px';
-  cursorDot.style.top = dotY + 'px';
-
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-document.querySelectorAll('a, button, .project-card, .strength-card, .skill-pill').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-});
-
 // ─── TYPING EFFECT ───
 const phrases = [
   'Python разработчик',

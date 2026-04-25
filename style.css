@@ -38,37 +38,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── CUSTOM CURSOR ─── */
-body { cursor: none; }
-a, button, .project-card, .strength-card, .skill-pill, .modal-gallery-item {
-  cursor: none;
-}
-.custom-cursor {
-  position: fixed;
-  width: 36px; height: 36px;
-  border: 2px solid rgba(168,85,247,0.6);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform .15s ease, border-color .2s, width .2s, height .2s;
-  transform: translate(-50%, -50%);
-}
-.custom-cursor-dot {
-  position: fixed;
-  width: 6px; height: 6px;
-  background: var(--accent2);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 8px rgba(168,85,247,0.8);
-}
-.custom-cursor.hover {
-  width: 52px; height: 52px;
-  border-color: rgba(196,132,252,0.9);
-  background: rgba(124,58,237,0.08);
-}
-
 /* ─── HERO STATS ─── */
 .hero-stats {
   display: flex;
