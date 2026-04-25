@@ -38,6 +38,10 @@ body {
   overflow-x: hidden;
 }
 
+section[id] {
+  scroll-margin-top: 100px;
+}
+
 /* ─── HERO STATS ─── */
 .hero-stats {
   display: flex;
