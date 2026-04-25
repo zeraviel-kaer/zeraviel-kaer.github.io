@@ -166,16 +166,39 @@ nav {
 }
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 4px;
 }
 .nav-links a {
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
   color: var(--muted);
   text-decoration: none;
-  transition: color .2s;
+  transition: all .2s;
   letter-spacing: .03em;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  font-weight: 500;
 }
-.nav-links a:hover { color: var(--text); }
+.nav-links a svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: color .2s;
+}
+.nav-links a:hover {
+  color: var(--text);
+  background: rgba(124,58,237,0.1);
+  border-color: rgba(124,58,237,0.2);
+}
+
+.nav-links a.active {
+  color: var(--accent3);
+  background: rgba(124,58,237,0.12);
+  border-color: rgba(124,58,237,0.25);
+}
 
 @media (max-width: 640px) {
   nav {

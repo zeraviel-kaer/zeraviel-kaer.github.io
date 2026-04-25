@@ -309,3 +309,29 @@ const statsObserver = new IntersectionObserver(entries => {
 
 const statsEl = document.querySelector('.hero-stats');
 if (statsEl) statsObserver.observe(statsEl);
+
+// ─── ACTIVE NAV ───
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  const scrollBottom = window.scrollY + window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+  
+  // если долистали до конца — активируем последний пункт
+  if (scrollBottom >= docHeight - 10) {
+    navLinks.forEach(a => a.classList.remove('active'));
+    navLinks[navLinks.length - 1].classList.add('active');
+    return;
+  }
+
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 200) current = s.id;
+  });
+
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
