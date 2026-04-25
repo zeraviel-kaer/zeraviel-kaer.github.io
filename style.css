@@ -468,12 +468,45 @@ section { position: relative; z-index: 1; }
   font-size: 14px;
   color: var(--muted2);
   transition: all .25s;
+  z-index: 2;
 }
 .project-card:hover .project-arrow {
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
   transform: translate(2px, -2px);
+}
+
+.project-thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  z-index: 1;
+  position: relative;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+.project-card:hover .project-thumb img {
+  transform: scale(1.05);
+}
+
+.project-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  background: linear-gradient(135deg, var(--bg3), var(--bg2));
 }
 
 /* ─── CONTACT ─── */
