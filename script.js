@@ -28,7 +28,7 @@ const projects = {
         type: "gallery",
         label: "Галерея",
         items: [
-          "media/HorizonPaws/banner.png",
+          "media/horizonpaws/banner.png",
         ]
       },
       {
