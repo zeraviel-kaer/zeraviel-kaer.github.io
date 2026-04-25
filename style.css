@@ -7,9 +7,128 @@
   --muted: #9ca3af;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
+.name {
+  margin: 15px 0 5px;
+}
+
+.desc {
+  color: var(--muted);
+}
+
+.btn {
+  margin-top: 15px;
+  background: var(--accent);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+.section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* GRID CARDS */
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.card {
+  background: var(--card);
+  padding: 15px 20px;
+  border-radius: 12px;
+  min-width: 160px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border: 1px solid var(--accent);
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tabs button {
+  background: var(--card);
+  border: none;
+  padding: 10px 15px;
+  color: var(--text);
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.tab {
+  display: none;
+  color: var(--muted);
+}
+
+.tab.active {
+  display: block;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--muted);
 }
