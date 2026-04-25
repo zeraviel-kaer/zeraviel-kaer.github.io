@@ -261,18 +261,22 @@ function type() {
   const current = phrases[phraseIndex];
 
   if (isDeleting) {
-    typingEl.textContent = current.slice(0, charIndex--);
+    charIndex--;
+    typingEl.textContent = current.slice(0, charIndex);
   } else {
-    typingEl.textContent = current.slice(0, charIndex++);
+    typingEl.textContent = current.slice(0, charIndex);
+    charIndex++;
   }
 
   if (!isDeleting && charIndex > current.length) {
     isDeleting = true;
-    setTimeout(type, 1800); // пауза перед удалением
+    setTimeout(type, 1800);
     return;
   }
-  if (isDeleting && charIndex < 0) {
+
+  if (isDeleting && charIndex <= 0) {
     isDeleting = false;
+    charIndex = 0;
     phraseIndex = (phraseIndex + 1) % phrases.length;
   }
 
