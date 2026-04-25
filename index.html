@@ -18,6 +18,10 @@
 <meta name="theme-color" content="#7c3aed"/>
 </head>
 <body>
+
+<div class="custom-cursor" id="cursor"></div>
+<div class="custom-cursor-dot" id="cursor-dot"></div>
+
 <div class="img-lightbox" id="lightbox" onclick="closeLightbox()">
   <span class="img-lightbox-close">✕</span>
   <img id="lightbox-img" src="" alt="">
@@ -26,6 +30,9 @@
 <div class="orb orb1"></div>
 <div class="orb orb2"></div>
 <div class="orb orb3"></div>
+<div class="orb orb4"></div>
+<div class="orb orb5"></div>
+<div class="orb orb6"></div>
 
 <!-- NAV -->
 <nav>
@@ -51,13 +58,32 @@
   </div>
 
   <h1 class="hero-name">Привет! Я Станислав</h1>
+
   <p class="hero-tagline">
-    <span>Самое интересное для меня создавать что-то новое и уникальное — находить идеи и превращать их в продуманные системы. Важно не просто делать отдельные элементы, а выстраивать целостные решения, где всё работает вместе.</span>
+    <span id="typing-text"></span><span class="typing-cursor">█</span>
   </p>
 
   <div class="hero-btns">
     <button class="btn-primary" onclick="scrollToSection('contact')">Связаться со мной</button>
     <button class="btn-outline" onclick="scrollToSection('projects')">Смотреть проекты</button>
+  </div>
+
+  <!-- ПОСЛЕ hero-btns: -->
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="stat-num" data-target="3">0</span><span class="stat-suffix">+</span>
+      <div class="stat-label">проекта</div>
+    </div>
+    <div class="hero-stat-divider"></div>
+    <div class="hero-stat">
+      <span class="stat-num" data-target="6">0</span><span class="stat-suffix">+</span>
+      <div class="stat-label">лет опыта</div>
+    </div>
+    <div class="hero-stat-divider"></div>
+    <div class="hero-stat">
+      <span class="stat-num" data-target="2">0</span><span class="stat-suffix">+</span>
+      <div class="stat-label">знаю языков</div>
+    </div>
   </div>
 
   <div class="scroll-hint">
@@ -80,7 +106,7 @@
         <div class="strength-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><g fill="#9B5DE5" clip-path="url(#SVGXv8lpc2Y)"><path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969s3.403 5.96 3.403 5.96h2.03v-2.867s-.109-3.42 3.35-3.42h5.766s3.24.052 3.24-3.148V3.202S18.28 0 11.913 0M8.708 1.85c.578 0 1.046.47 1.046 1.052c0 .581-.468 1.051-1.046 1.051s-1.046-.47-1.046-1.051c0-.582.467-1.052 1.046-1.052"/><path d="M12.087 24c6.092 0 5.712-2.656 5.712-2.656l-.007-2.752h-5.814v-.826h8.123s3.9.445 3.9-5.735s-3.404-5.96-3.404-5.96h-2.03v2.867s.109 3.42-3.35 3.42H9.452s-3.24-.052-3.24 3.148v5.292S5.72 24 12.087 24m3.206-1.85c-.579 0-1.046-.47-1.046-1.052c0-.581.467-1.051 1.046-1.051c.578 0 1.046.47 1.046 1.051c0 .582-.468 1.052-1.046 1.052"/></g><defs><clipPath id="SVGXv8lpc2Y"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></g></svg>
         </div>
-          <div class="strength-title">Python-разработка</div>
+          <div class="strength-title">Python/luau-разработка</div>
         <!--<div class="strength-desc"></div>-->
       </div>
       <div class="strength-card fade-in">

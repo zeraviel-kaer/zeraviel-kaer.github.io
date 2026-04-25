@@ -203,6 +203,39 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
+const orbs = [
+  { el: document.querySelector('.orb1'), speedX: 0.25, speedY: 0.20 },
+  { el: document.querySelector('.orb2'), speedX: -0.30, speedY: -0.25 },
+  { el: document.querySelector('.orb3'), speedX: 0.18, speedY: 0.28 },
+  { el: document.querySelector('.orb4'), speedX: -0.22, speedY: 0.18 },
+  { el: document.querySelector('.orb5'), speedX: 0.28, speedY: -0.20 },
+  { el: document.querySelector('.orb6'), speedX: -0.16, speedY: -0.30 },
+];
+
+let mouseX = 0, mouseY = 0;
+let currentX = 0, currentY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX - window.innerWidth / 2;
+  mouseY = e.clientY - window.innerHeight / 2;
+});
+
+function animateOrbs() {
+  currentX += (mouseX - currentX) * 0.08;
+  currentY += (mouseY - currentY) * 0.08;
+
+  orbs.forEach(o => {
+    if (!o.el) return;
+    const x = currentX * o.speedX;
+    const y = currentY * o.speedY;
+    o.el.style.transform = `translate(${x}px, ${y}px)`;
+  });
+
+  requestAnimationFrame(animateOrbs);
+}
+
+animateOrbs();
+
 // ─── KEYBOARD ───
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
@@ -210,3 +243,98 @@ document.addEventListener("keydown", e => {
     closeLightbox();
   }
 });
+
+// ─── CUSTOM CURSOR ───
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursor-dot');
+let cursorX = 0, cursorY = 0;
+let dotX = 0, dotY = 0;
+
+document.addEventListener('mousemove', e => {
+  dotX = e.clientX;
+  dotY = e.clientY;
+});
+
+function animateCursor() {
+  cursorX += (dotX - cursorX) * 0.12;
+  cursorY += (dotY - cursorY) * 0.12;
+
+  cursor.style.left = cursorX + 'px';
+  cursor.style.top = cursorY + 'px';
+  cursorDot.style.left = dotX + 'px';
+  cursorDot.style.top = dotY + 'px';
+
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+document.querySelectorAll('a, button, .project-card, .strength-card, .skill-pill').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
+// ─── TYPING EFFECT ───
+const phrases = [
+  'Python разработчик',
+  'Discord бот девелопер',
+  'Roblox Studio • Luau',
+  'UI / UX энтузиаст',
+  'Строю системы с душой'
+];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingEl = document.getElementById('typing-text');
+
+function type() {
+  const current = phrases[phraseIndex];
+
+  if (isDeleting) {
+    typingEl.textContent = current.slice(0, charIndex--);
+  } else {
+    typingEl.textContent = current.slice(0, charIndex++);
+  }
+
+  if (!isDeleting && charIndex > current.length) {
+    isDeleting = true;
+    setTimeout(type, 1800); // пауза перед удалением
+    return;
+  }
+  if (isDeleting && charIndex < 0) {
+    isDeleting = false;
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+  }
+
+  setTimeout(type, isDeleting ? 40 : 80);
+}
+type();
+
+// ─── COUNT-UP STATS ───
+function countUp(el) {
+  const target = +el.dataset.target;
+  const duration = 1500;
+  const step = target / (duration / 16);
+  let current = 0;
+
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      el.textContent = target;
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(current);
+    }
+  }, 16);
+}
+
+const statsObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.stat-num').forEach(countUp);
+      statsObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const statsEl = document.querySelector('.hero-stats');
+if (statsEl) statsObserver.observe(statsEl);
