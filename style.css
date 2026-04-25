@@ -267,7 +267,7 @@ section { position: relative; z-index: 1; }
 .section-inner {
   max-width: 960px;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: 20px 24px;
 }
 .section-label {
   font-size: 12px;
@@ -296,10 +296,13 @@ section { position: relative; z-index: 1; }
   background: var(--card);
   border: 1px solid var(--border2);
   border-radius: 16px;
-  padding: 28px 24px;
+  padding: 20px 24px;
   transition: all .3s;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 .strength-card::before {
   content: '';
@@ -315,13 +318,13 @@ section { position: relative; z-index: 1; }
   box-shadow: 0 12px 40px rgba(124,58,237,0.2);
 }
 .strength-card:hover::before { opacity: 1; }
-.strength-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+.strength-icon { font-size: 26px; flex-shrink: 0; }
 .strength-title {
   font-family: 'Syne', sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 0px;
 }
 .strength-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
@@ -370,11 +373,21 @@ section { position: relative; z-index: 1; }
   color: var(--muted);
   transition: all .2s;
   font-weight: 400;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
 .skill-pill:hover {
   border-color: var(--accent);
   color: var(--accent3);
   background: rgba(124,58,237,0.08);
+}
+.skill-pill svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
 /* ─── PROJECTS ─── */
