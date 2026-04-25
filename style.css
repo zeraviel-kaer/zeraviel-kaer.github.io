@@ -1,1 +1,15 @@
+:root {
+  --bg: #0b0b10;
+  --card: #141420;
+  --accent: #8b5cf6;
+  --accent2: #a78bfa;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
