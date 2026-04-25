@@ -160,6 +160,8 @@ function openModal(type) {
   const p = projects[type];
 
   document.getElementById("modal-body-inner").innerHTML = `
+    <div class="modal-glow-left"></div>
+    <div class="modal-glow-right"></div>
     <div class="modal-header">
       <div class="modal-emoji">${p.icon}</div>
       <div class="modal-titles">
